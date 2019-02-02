@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Switch, Link, Route} from 'react-router-dom';
+import axios from 'axios';
 
 class App extends Component {
+
+  state = {
+    skillShare:this.props.skillShare
+  }
+
+  // componentDidMount (){
+  //   axios.get('http://localhost:8081/getskillshare')
+  //     .then((response) => {
+  //       this.setState({
+  //         skillList: response.data.skillShare
+  //       })
+  //     })
+  // }
+
   render() {
     return (
       <div className="App">
@@ -17,7 +32,9 @@ class App extends Component {
         <Switch>
         <Route path= '/home' exact component= {Home}/>
         <Route path= '/aboutus' component= {AboutUs}/>
-        <Route path= '/skillshare' component= {SkillShare}/>
+        <Route path= '/skillshare' render={() => <SkillShare  skillShare={this.props.skillShare} />}/>
+        <Route path='/:skillId' render={(routerProps) => <SkillDetails {...routerProps} skillShare={this.props.skillShare}/>} />
+        
         </Switch>
       </div>
     );
@@ -26,15 +43,15 @@ class App extends Component {
 
 
 class Home extends Component {
+
   render() {
     return (
       <div className="App">
-
       <h1 id='header'>Online Bullentin Board</h1>
         <div id='homep1'>
           <div className='row'>
             <div className='col'>
-                <p>A space where skill sharing through knowledge management </p>
+                <p>A space where skill is shared through effective knowledge management app tool</p>
               </div> 
             </div>
           </div>
@@ -54,7 +71,19 @@ class AboutUs extends Component {
 }
 
 class SkillShare extends Component {
-  render() {
+  render(props) {
+    const skillList = this.props.skillShare.map((skill, i) => {
+      return <div className='col-lg-3 col-md-4 col-sm-8 col-xs-8' >
+             <div className="card">
+              <img src={skill.Img}   class="card-img-top" style={{"height": "220px"}} alt=""/>
+                <div key={i} className="card-body" >
+                  <Link to={'/' + skill.id}><h4>{skill.Name}</h4></Link>
+                  <p>{skill.Expertise}</p>
+                  <Link to=''><img src='./images/play.png'  alt="" /></Link>
+                </div>
+                </div>
+             </div>
+    })
     return (
       <div className="App">
         <h1 id='header'>Skill Share</h1>
@@ -66,73 +95,35 @@ class SkillShare extends Component {
               </button>
             </div>
           </div>
-          
 
-          <div className='row'>
-            <div className='col'>
-          <div class="card" />
-          <img class="card-img-top" alt="Card image cap"/>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-
-            <div className='col'>
-          <div class="card" />
-          <img class="card-img-top" alt="Card image cap"/>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-
+          <div>
           <div className='container'>
-            <div className='col'>
-          <div class="card" />
-          <img class="card-img-top" src='../public/images/hat01.jpg' alt="Card image cap"/>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-
-             <div className='col'>
-          <div class="card" />
-          <img class="card-img-top" alt="Card image cap"/>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-           
-             <div className='col'>
-          <div class="card" />
-          <img class="card-img-top" alt="Card image cap"/>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+            <div className='row'>
+                {skillList}
             </div>
           </div>
-          </div>
-
-
-          
+        </div>
         </div>
     
-      
-      
     );
   }
 }
 
 
+class SkillDetails extends Component {
+  render(){
+    let skillId = this.props.match.params.skillId
+    let skill = this.props.skillShare[skillId]
+    return(
+          <div className='container'>
+            <div className='skillDetail'>
+                <p>Title: </p>
+                <p>Artist: </p>
+                <p>Description:</p>
+            </div>
 
-
+            </div>
+    )
+  }
+}
 export default App;

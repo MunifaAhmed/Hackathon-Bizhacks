@@ -38,7 +38,10 @@ a:hover {
   font-size: 20px;
   font-weight: bold;
 }
-
+ 
+.card{
+  margin-bottom: 40px;
+}
 .col{
   padding-left: 40px;
   padding-right: 40px;
@@ -50,7 +53,7 @@ a:hover {
 }
 
 #header{
-  padding-top: 30px;
+  padding-top: 60px;
   padding-bottom: 30px;
 }
 
@@ -101,4 +104,9 @@ body{
   top: 22%;
   left: 79%;
   transform: translate(-50%, -50%);
+}
+
+.container{
+
+  margin: 50px;
 }
