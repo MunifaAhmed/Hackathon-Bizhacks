@@ -6,7 +6,9 @@ import axios from 'axios';
 class App extends Component {
 
   state = {
-    skillShare:this.props.skillShare
+    skillShare:this.props.skillShare,
+    filteredSkill:[],
+
   }
 
   // componentDidMount (){
@@ -51,7 +53,7 @@ class Home extends Component {
         <div id='homep1'>
           <div className='row'>
             <div className='col'>
-                <p>A space where skill is shared through effective knowledge management app tool</p>
+                <p>A space where skill is shared through effective knowledge management tool</p>
               </div> 
             </div>
           </div>
@@ -71,7 +73,7 @@ class AboutUs extends Component {
 }
 
 class SkillShare extends Component {
-  render(props) {
+  render() {
     const skillList = this.props.skillShare.map((skill, i) => {
       return <div className='col-lg-3 col-md-4 col-sm-8 col-xs-8' >
              <div className="card">
@@ -86,11 +88,11 @@ class SkillShare extends Component {
     })
     return (
       <div className="App">
-        <h1 id='header'>Skill Share</h1>
+        <h1 id='header'>Skills Share</h1>
         <div class="wrap">
             <div class="search">
-                <input type="text" class="searchTerm" placeholder="What are you looking for?"/>
-                <button type="submit" class="searchButton">
+                <input type="text" class="searchTerm" placeholder="What skills you are looking for?"/>
+                <button type="submit" class="searchButton" >
                   Search
               </button>
             </div>
@@ -120,8 +122,7 @@ class SkillDetails extends Component {
                 <p>Title: </p>
                 <p>Artist: </p>
                 <p>Description:</p>
-            </div>
-
+              </div>
             </div>
     )
   }

@@ -7,61 +7,61 @@ import { BrowserRouter as Router} from 'react-router-dom'
 
 const skillShare = [
     {
-        Name: 'Maher Zain',
+        Name: 'Bill Gate',
         Expertise: 'Javascript, Web design',
         id: 0,
         description:'ldksfjlidsfd',
-        Img: '/images/nav.jpg'
+        Img: '/images/bill.jpeg'
 
     },
     {
-        Name: 'Maher Zain',
+        Name: 'Oprah Winfrey',
         Expertise: 'Javascript, Mongo',
         id: 0,
         description:'ldksfjlidsfd',
-        Img: '/images/nav.jpg'
+        Img: '/images/oprah.jpeg'
     },
     {
-        Name: 'Maher Zain',
+        Name: 'Priyanka Chopra',
         Expertise: 'Mongo, Web design',
         id: 0,
         description:'ldksfjlidsfd',
-        Img: '/images/navy.jpg'
+        Img: '/images/priyanka.jpeg'
     },
     {
-        Name: 'Maher Zain',
+        Name: 'Warren Baffet',
         Expertise: 'Javascript',
         id: 0,
         description:'ldksfjlidsfd',
-        Img: '/images/navy.jpg'
+        Img: '/images/warren.jpeg'
     },
     {
-        Name: 'Maher Zain',
+        Name: 'Marc Benioff',
         Expertise: ' Web design',
         id: 0,
         description:'ldksfjlidsfd',
-        Img: '/images/nav.jpg'
+        Img: '/images/salesforce.jpeg'
     },
     {
-        Name: 'Maher Zain',
+        Name: 'Mark Z.',
         Expertise: ' Mongo',
         id: 0,
         description:'ldksfjlidsfd',
-        Img: '/images/navy.jpg'
+        Img: '/images/mark.jpeg'
     },
     {
-        Name: 'Maher Zain',
+        Name: 'Munifa Ahmed',
         Expertise: 'Javascript, Mongo, Web design',
         id: 0,
         description:'ldksfjlidsfd',
-        Img: '/images/navy.jpg'
+        Img: '/images/munifa.jpeg'
     },
     {
-        Name: 'Maher Zain',
+        Name: 'Elon Musk',
         Expertise: 'Javascript, Mongo, Web design',
         id: 0,
         description:'ldksfjlidsfd',
-        Img: '/images/nav.jpg'
+        Img: '/images/elon.jpeg'
     }
     
 ]
